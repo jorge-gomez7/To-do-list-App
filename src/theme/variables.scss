@@ -1,2 +1,119 @@
-// For information on how to create your own theme, please refer to:
-// https://ionicframework.com/docs/theming/
+// Ionic Variables and Theming
+// Custom Theme: Modern Dark with Vibrant Accents
+
+:root {
+  // Primary - Vibrant Coral/Orange
+  --ion-color-primary: #FF6B6B;
+  --ion-color-primary-rgb: 255, 107, 107;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-contrast-rgb: 255, 255, 255;
+  --ion-color-primary-shade: #e05e5e;
+  --ion-color-primary-tint: #ff7a7a;
+
+  // Secondary - Electric Purple
+  --ion-color-secondary: #A855F7;
+  --ion-color-secondary-rgb: 168, 85, 247;
+  --ion-color-secondary-contrast: #ffffff;
+  --ion-color-secondary-contrast-rgb: 255, 255, 255;
+  --ion-color-secondary-shade: #944bd9;
+  --ion-color-secondary-tint: #b166f8;
+
+  // Tertiary - Cyan/Teal
+  --ion-color-tertiary: #06B6D4;
+  --ion-color-tertiary-rgb: 6, 182, 212;
+  --ion-color-tertiary-contrast: #ffffff;
+  --ion-color-tertiary-contrast-rgb: 255, 255, 255;
+  --ion-color-tertiary-shade: #05a0bb;
+  --ion-color-tertiary-tint: #1fbdd8;
+
+  // Success - Emerald Green
+  --ion-color-success: #10B981;
+  --ion-color-success-rgb: 16, 185, 129;
+  --ion-color-success-contrast: #ffffff;
+  --ion-color-success-contrast-rgb: 255, 255, 255;
+  --ion-color-success-shade: #0ea372;
+  --ion-color-success-tint: #28c08e;
+
+  // Warning - Amber
+  --ion-color-warning: #F59E0B;
+  --ion-color-warning-rgb: 245, 158, 11;
+  --ion-color-warning-contrast: #000000;
+  --ion-color-warning-contrast-rgb: 0, 0, 0;
+  --ion-color-warning-shade: #d88b0a;
+  --ion-color-warning-tint: #f6a823;
+
+  // Danger - Rose Red
+  --ion-color-danger: #EF4444;
+  --ion-color-danger-rgb: 239, 68, 68;
+  --ion-color-danger-contrast: #ffffff;
+  --ion-color-danger-contrast-rgb: 255, 255, 255;
+  --ion-color-danger-shade: #d23c3c;
+  --ion-color-danger-tint: #f15757;
+
+  // Dark Theme Base
+  --ion-color-dark: #1E1E2E;
+  --ion-color-dark-rgb: 30, 30, 46;
+  --ion-color-dark-contrast: #ffffff;
+  --ion-color-dark-contrast-rgb: 255, 255, 255;
+  --ion-color-dark-shade: #1a1a28;
+  --ion-color-dark-tint: #353543;
+
+  // Medium
+  --ion-color-medium: #6B7280;
+  --ion-color-medium-rgb: 107, 114, 128;
+  --ion-color-medium-contrast: #ffffff;
+  --ion-color-medium-contrast-rgb: 255, 255, 255;
+  --ion-color-medium-shade: #5e6471;
+  --ion-color-medium-tint: #7a808d;
+
+  // Light
+  --ion-color-light: #F3F4F6;
+  --ion-color-light-rgb: 243, 244, 246;
+  --ion-color-light-contrast: #1E1E2E;
+  --ion-color-light-contrast-rgb: 30, 30, 46;
+  --ion-color-light-shade: #d6d7d8;
+  --ion-color-light-tint: #f4f5f7;
+}
+
+// Dark Theme - Always On
+body {
+  --ion-background-color: #0F0F1A;
+  --ion-background-color-rgb: 15, 15, 26;
+
+  --ion-text-color: #E5E5E5;
+  --ion-text-color-rgb: 229, 229, 229;
+
+  --ion-card-background: #1E1E2E;
+  --ion-item-background: #1E1E2E;
+
+  --ion-toolbar-background: #1E1E2E;
+  --ion-toolbar-color: #ffffff;
+
+  --ion-tab-bar-background: #1E1E2E;
+  --ion-tab-bar-color: #6B7280;
+  --ion-tab-bar-color-selected: #FF6B6B;
+
+  // Custom CSS Variables
+  --app-gradient-primary: linear-gradient(135deg, #FF6B6B 0%, #A855F7 100%);
+  --app-gradient-secondary: linear-gradient(135deg, #06B6D4 0%, #A855F7 100%);
+  --app-gradient-success: linear-gradient(135deg, #10B981 0%, #06B6D4 100%);
+  --app-card-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  --app-border-radius: 16px;
+  --app-border-radius-sm: 12px;
+}
+
+// Custom Category Colors
+.category-trabajo {
+  --category-color: #FF6B6B;
+  --category-bg: rgba(255, 107, 107, 0.15);
+}
+
+.category-casa {
+  --category-color: #10B981;
+  --category-bg: rgba(16, 185, 129, 0.15);
+}
+
+.category-negocios {
+  --category-color: #A855F7;
+  --category-bg: rgba(168, 85, 247, 0.15);
+}

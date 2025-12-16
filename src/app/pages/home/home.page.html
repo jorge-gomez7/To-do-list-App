@@ -1,0 +1,117 @@
+<ion-content [fullscreen]="true">
+  <div class="home-container">
+    <!-- Header Section -->
+    <div class="header-section animate-fade-in-up">
+      <p class="date-text">{{ currentDate }}</p>
+      <h1 class="greeting">{{ greeting }}</h1>
+      <p class="subtitle">Gestiona tus tareas de forma eficiente</p>
+    </div>
+
+    <!-- Progress Ring -->
+    <div class="progress-section animate-fade-in-up delay-1">
+      <div class="progress-ring-container">
+        <svg class="progress-ring" viewBox="0 0 120 120">
+          <circle 
+            class="progress-ring-bg" 
+            cx="60" 
+            cy="60" 
+            r="52" 
+            fill="none" 
+            stroke-width="12"
+          />
+          <circle 
+            class="progress-ring-fill" 
+            cx="60" 
+            cy="60" 
+            r="52" 
+            fill="none" 
+            stroke-width="12"
+            [style.stroke-dasharray]="326.73"
+            [style.stroke-dashoffset]="326.73 - (326.73 * completionPercentage / 100)"
+          />
+        </svg>
+        <div class="progress-text">
+          <span class="percentage">{{ completionPercentage }}%</span>
+          <span class="label">Completado</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats Cards -->
+    <div class="stats-grid animate-fade-in-up delay-2">
+      <div class="stat-card primary" [routerLink]="['/task-list']">
+        <ion-ripple-effect></ion-ripple-effect>
+        <ion-icon name="time-outline"></ion-icon>
+        <span class="stat-number">{{ stats.pending }}</span>
+        <span class="stat-label">Pendientes</span>
+      </div>
+      <div class="stat-card success" [routerLink]="['/task-list']" [queryParams]="{filter: 'completed'}">
+        <ion-ripple-effect></ion-ripple-effect>
+        <ion-icon name="checkmark-circle-outline"></ion-icon>
+        <span class="stat-number">{{ stats.completed }}</span>
+        <span class="stat-label">Completadas</span>
+      </div>
+    </div>
+
+    <!-- Categories Section -->
+    <div class="categories-section animate-fade-in-up delay-3">
+      <div class="section-header">
+        <h2>Por Categoría</h2>
+      </div>
+      
+      <div class="category-list">
+        <div class="category-item trabajo" [routerLink]="['/task-list']" [queryParams]="{category: 'trabajo'}">
+          <ion-ripple-effect></ion-ripple-effect>
+          <div class="category-icon">
+            <ion-icon name="briefcase-outline"></ion-icon>
+          </div>
+          <div class="category-info">
+            <span class="category-name">Trabajo</span>
+            <span class="category-count">{{ stats.byCategory.trabajo }} tareas</span>
+          </div>
+          <ion-icon name="chevron-forward-outline" class="chevron"></ion-icon>
+        </div>
+
+        <div class="category-item casa" [routerLink]="['/task-list']" [queryParams]="{category: 'casa'}">
+          <ion-ripple-effect></ion-ripple-effect>
+          <div class="category-icon">
+            <ion-icon name="home-outline"></ion-icon>
+          </div>
+          <div class="category-info">
+            <span class="category-name">Casa</span>
+            <span class="category-count">{{ stats.byCategory.casa }} tareas</span>
+          </div>
+          <ion-icon name="chevron-forward-outline" class="chevron"></ion-icon>
+        </div>
+
+        <div class="category-item negocios" [routerLink]="['/task-list']" [queryParams]="{category: 'negocios'}">
+          <ion-ripple-effect></ion-ripple-effect>
+          <div class="category-icon">
+            <ion-icon name="business-outline"></ion-icon>
+          </div>
+          <div class="category-info">
+            <span class="category-name">Negocios</span>
+            <span class="category-count">{{ stats.byCategory.negocios }} tareas</span>
+          </div>
+          <ion-icon name="chevron-forward-outline" class="chevron"></ion-icon>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="quick-actions animate-fade-in-up delay-4">
+      <button class="action-btn primary" [routerLink]="['/task-list']">
+        <ion-ripple-effect></ion-ripple-effect>
+        <ion-icon name="list-outline"></ion-icon>
+        <span>Ver Todas</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- FAB Button -->
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button class="fab-custom" [routerLink]="['/add-task']">
+      <ion-icon name="add-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

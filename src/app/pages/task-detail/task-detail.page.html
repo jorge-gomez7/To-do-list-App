@@ -1,0 +1,89 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/task-list" text="" color="light"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Detalle de Tarea</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  @if (task) {
+    <div class="detail-container">
+      <!-- Status Badge -->
+      <div class="status-section animate-fade-in-up">
+        <div class="status-badge" [class.completed]="task.completed">
+          <ion-icon [name]="task.completed ? 'checkmark-circle' : 'checkmark-circle-outline'"></ion-icon>
+          <span>{{ task.completed ? 'Completada' : 'Pendiente' }}</span>
+        </div>
+      </div>
+
+      <!-- Main Card -->
+      <div class="detail-card animate-fade-in-up delay-1">
+        <!-- Category Header -->
+        <div class="category-header {{ task.category }}">
+          <div class="category-icon">
+            <ion-icon [name]="getCategoryIcon(task.category)"></ion-icon>
+          </div>
+          <span class="category-name">{{ getCategoryLabel(task.category) }}</span>
+        </div>
+
+        <!-- Title -->
+        <h1 class="task-title" [class.completed]="task.completed">{{ task.title }}</h1>
+
+        <!-- Description -->
+        <div class="description-section">
+          <div class="section-header">
+            <ion-icon name="document-text-outline"></ion-icon>
+            <span>Descripción</span>
+          </div>
+          <p class="task-description">{{ task.description }}</p>
+        </div>
+
+        <!-- Meta Info -->
+        <div class="meta-section">
+          <div class="meta-item">
+            <div class="meta-icon">
+              <ion-icon name="calendar-outline"></ion-icon>
+            </div>
+            <div class="meta-content">
+              <span class="meta-label">Creada</span>
+              <span class="meta-value">{{ formatDate(task.createdAt) }}</span>
+            </div>
+          </div>
+
+          @if (task.completed && task.completedAt) {
+            <div class="meta-item completed">
+              <div class="meta-icon">
+                <ion-icon name="checkmark-circle-outline"></ion-icon>
+              </div>
+              <div class="meta-content">
+                <span class="meta-label">Completada</span>
+                <span class="meta-value">{{ formatDate(task.completedAt) }}</span>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="actions-section animate-fade-in-up delay-2">
+        <button 
+          class="action-btn toggle-btn"
+          [class.completed]="task.completed"
+          (click)="toggleComplete()"
+        >
+          <ion-ripple-effect></ion-ripple-effect>
+          <ion-icon [name]="task.completed ? 'checkmark-circle-outline' : 'checkmark-circle'"></ion-icon>
+          <span>{{ task.completed ? 'Marcar Pendiente' : 'Marcar Completada' }}</span>
+        </button>
+
+        <button class="action-btn delete-btn" (click)="confirmDelete()">
+          <ion-ripple-effect></ion-ripple-effect>
+          <ion-icon name="trash-outline"></ion-icon>
+          <span>Eliminar</span>
+        </button>
+      </div>
+    </div>
+  }
+</ion-content>

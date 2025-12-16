@@ -1,0 +1,88 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/task-list" text="" color="light"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Nueva Tarea</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="form-container">
+    <!-- Header Icon -->
+    <div class="form-header animate-fade-in-up">
+      <div class="header-icon">
+        <ion-icon name="checkmark-outline"></ion-icon>
+      </div>
+      <h2>Crear Nueva Tarea</h2>
+      <p>Completa los campos para agregar una tarea</p>
+    </div>
+
+    <!-- Form -->
+    <div class="form-content">
+      <!-- Title Input -->
+      <div class="input-group animate-fade-in-up delay-1">
+        <label class="input-label">Título</label>
+        <div class="input-wrapper">
+          <input 
+            type="text" 
+            [(ngModel)]="title"
+            placeholder="¿Qué necesitas hacer?"
+            class="custom-input"
+          />
+        </div>
+      </div>
+
+      <!-- Description Input -->
+      <div class="input-group animate-fade-in-up delay-2">
+        <label class="input-label">Descripción</label>
+        <div class="input-wrapper">
+          <textarea 
+            [(ngModel)]="description"
+            placeholder="Agrega más detalles sobre la tarea..."
+            rows="4"
+            class="custom-textarea"
+          ></textarea>
+        </div>
+      </div>
+
+      <!-- Category Selection -->
+      <div class="input-group animate-fade-in-up delay-3">
+        <label class="input-label">Categoría</label>
+        <div class="category-grid">
+          @for (cat of categories; track cat.value) {
+            <div 
+              class="category-option {{ cat.value }}"
+              [class.selected]="category === cat.value"
+              (click)="selectCategory(cat.value)"
+            >
+              <ion-ripple-effect></ion-ripple-effect>
+              <div class="category-icon">
+                <ion-icon [name]="cat.icon"></ion-icon>
+              </div>
+              <span class="category-label">{{ cat.label }}</span>
+              @if (category === cat.value) {
+                <div class="check-mark">
+                  <ion-icon name="checkmark-outline"></ion-icon>
+                </div>
+              }
+            </div>
+          }
+        </div>
+      </div>
+
+      <!-- Submit Button -->
+      <div class="submit-section animate-fade-in-up delay-4">
+        <button 
+          class="submit-btn"
+          [class.disabled]="!isValid()"
+          (click)="saveTask()"
+        >
+          <ion-ripple-effect></ion-ripple-effect>
+          <ion-icon name="save-outline"></ion-icon>
+          <span>Guardar Tarea</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</ion-content>

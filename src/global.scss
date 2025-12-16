@@ -1,12 +1,6 @@
 /*
  * App Global CSS
- * ----------------------------------------------------------------------------
- * Put style rules here that you want to apply globally. These styles are for
- * the entire app and not just one component. Additionally, this file can be
- * used as an entry point to import other CSS/Sass files to be included in the
- * output CSS.
- * For more information on global stylesheets, visit the documentation:
- * https://ionicframework.com/docs/layout/global-stylesheets
+ * Modern To-Do List App Styles
  */
 
 /* Core CSS required for Ionic components to work properly */
@@ -18,20 +12,318 @@
 @import "@ionic/angular/css/typography.css";
 @import "@ionic/angular/css/display.css";
 
-/* Optional CSS utils that can be commented out */
+/* Optional CSS utils */
 @import "@ionic/angular/css/padding.css";
 @import "@ionic/angular/css/float-elements.css";
 @import "@ionic/angular/css/text-alignment.css";
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
 
-/**
- * Ionic Dark Mode
- * -----------------------------------------------------
- * For more info, please see:
- * https://ionicframework.com/docs/theming/dark-mode
- */
+// Google Fonts - Poppins
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
-/* @import "@ionic/angular/css/palettes/dark.always.css"; */
-/* @import "@ionic/angular/css/palettes/dark.class.css"; */
-@import '@ionic/angular/css/palettes/dark.system.css';
+// Global Font
+* {
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+// Body Background
+body {
+  background: linear-gradient(180deg, #0F0F1A 0%, #1a1a2e 100%);
+  min-height: 100vh;
+}
+
+// Custom Ion Content
+ion-content {
+  --background: transparent;
+  
+  &::part(background) {
+    background: linear-gradient(180deg, #0F0F1A 0%, #1a1a2e 100%);
+  }
+}
+
+// Custom Header Styles
+ion-header {
+  ion-toolbar {
+    --background: transparent;
+    --border-width: 0;
+    
+    ion-title {
+      font-weight: 700;
+      font-size: 1.5rem;
+      letter-spacing: -0.5px;
+    }
+  }
+}
+
+// Modern Card Style
+.modern-card {
+  background: linear-gradient(145deg, #1E1E2E 0%, #252538 100%);
+  border-radius: var(--app-border-radius);
+  box-shadow: var(--app-card-shadow);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+// Gradient Text
+.gradient-text {
+  background: var(--app-gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+// Task Card Styles
+.task-card {
+  background: linear-gradient(145deg, #1E1E2E 0%, #252538 100%);
+  border-radius: var(--app-border-radius);
+  padding: 16px;
+  margin-bottom: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+  
+  &.completed {
+    opacity: 0.6;
+    
+    .task-title {
+      text-decoration: line-through;
+      color: var(--ion-color-medium);
+    }
+  }
+  
+  .task-title {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #fff;
+    margin-bottom: 4px;
+  }
+  
+  .task-description {
+    font-size: 0.9rem;
+    color: var(--ion-color-medium);
+    margin-bottom: 8px;
+  }
+  
+  .task-category {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: capitalize;
+  }
+}
+
+// Stat Card
+.stat-card {
+  background: linear-gradient(145deg, #1E1E2E 0%, #252538 100%);
+  border-radius: var(--app-border-radius);
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  text-align: center;
+  
+  .stat-number {
+    font-size: 2.5rem;
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  
+  .stat-label {
+    font-size: 0.85rem;
+    color: var(--ion-color-medium);
+    font-weight: 500;
+  }
+  
+  &.primary .stat-number {
+    background: var(--app-gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  &.success .stat-number {
+    color: var(--ion-color-success);
+  }
+  
+  &.warning .stat-number {
+    color: var(--ion-color-warning);
+  }
+}
+
+// Floating Action Button Custom
+.fab-custom {
+  --background: var(--app-gradient-primary);
+  --box-shadow: 0 8px 24px rgba(255, 107, 107, 0.4);
+  
+  ion-icon {
+    font-size: 1.5rem;
+  }
+}
+
+// Custom Button Styles
+.btn-gradient {
+  --background: linear-gradient(135deg, #FF6B6B 0%, #A855F7 100%);
+  --background-hover: linear-gradient(135deg, #e05e5e 0%, #944bd9 100%);
+  --border-radius: 12px;
+  --box-shadow: 0 8px 24px rgba(255, 107, 107, 0.3);
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: 0;
+  height: 56px;
+  font-size: 1rem;
+}
+
+// Custom Input Styles
+.custom-input {
+  --background: rgba(255, 255, 255, 0.05);
+  --border-radius: 12px;
+  --padding-start: 16px;
+  --padding-end: 16px;
+  --highlight-color-focused: var(--ion-color-primary);
+  margin-bottom: 16px;
+  
+  ion-label {
+    color: var(--ion-color-medium) !important;
+    font-weight: 500;
+  }
+}
+
+// Custom Select
+ion-select {
+  --placeholder-color: var(--ion-color-medium);
+  --placeholder-opacity: 1;
+}
+
+// Checkbox Custom
+ion-checkbox {
+  --size: 24px;
+  --checkbox-background-checked: var(--ion-color-success);
+  --border-color: var(--ion-color-medium);
+  --border-color-checked: var(--ion-color-success);
+  --border-radius: 6px;
+}
+
+// Swipe Actions
+ion-item-sliding {
+  ion-item-options {
+    ion-item-option {
+      --background: var(--ion-color-danger);
+      
+      &.option-complete {
+        --background: var(--ion-color-success);
+      }
+    }
+  }
+}
+
+// Empty State
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px;
+  text-align: center;
+  
+  ion-icon {
+    font-size: 80px;
+    color: var(--ion-color-medium);
+    margin-bottom: 16px;
+    opacity: 0.5;
+  }
+  
+  h3 {
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+  
+  p {
+    color: var(--ion-color-medium);
+    font-size: 0.95rem;
+  }
+}
+
+// Animation Classes
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+.animate-pulse {
+  animation: pulse 2s infinite;
+}
+
+// Stagger animation delays
+@for $i from 1 through 10 {
+  .delay-#{$i} {
+    animation-delay: #{$i * 0.1}s;
+  }
+}
+
+// Segment Custom
+ion-segment {
+  --background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 4px;
+  
+  ion-segment-button {
+    --background-checked: var(--ion-color-primary);
+    --color: var(--ion-color-medium);
+    --color-checked: #fff;
+    --indicator-color: transparent;
+    --border-radius: 8px;
+    font-weight: 500;
+    text-transform: none;
+    min-height: 40px;
+  }
+}
+
+// Ripple effect enhancement
+ion-ripple-effect {
+  color: rgba(255, 107, 107, 0.3);
+}
+
+// Scrollbar styling
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
